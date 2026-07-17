@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rufi/obsidian-qdrant-sync.git"
+    "url": "https://github.com/lanjak/obsidian-qdrant-sync.git"
   },
   "scripts": {
     "build": "node esbuild.config.mjs production",

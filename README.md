@@ -8,7 +8,7 @@ Sync your Obsidian vault across devices using a self-hosted Qdrant instance inst
 - An embedding server that speaks the llama.cpp `/embedding` endpoint, also reachable from every device. Point it at any embedding model you like; 768-dim models are the default assumption but you can change the collection's vector size to match whatever you run.
 - A collection created in Qdrant ahead of time, sized to your embedding model's output dimension, cosine distance.
 
-Obsidian Sync, CouchDB, Syncthing - none of that is needed. This plugin talks to Qdrant directly over HTTP from inside Obsidian, so it works on desktop and mobile.
+Obsidian Sync, CouchDB, Syncthing - none of that is needed. This plugin talks to Qdrant directly over HTTP or HTTPS from inside Obsidian, so it works on desktop and mobile.
 
 ## Install
 
