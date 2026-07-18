@@ -12,7 +12,9 @@ Obsidian Sync, CouchDB, Syncthing - none of that is needed. This plugin talks to
 
 ## Install
 
-Not yet on the community plugin list. Until then:
+Search for "Qdrant Sync" in Obsidian's community plugins browser and install it from there.
+
+Alternatively, install manually:
 
 1. Download `main.js` and `manifest.json` from the latest release.
 2. Drop them into `<your vault>/.obsidian/plugins/qdrant-sync/`.
