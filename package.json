@@ -1,6 +1,6 @@
 {
   "name": "obsidian-qdrant-sync",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Syncs an Obsidian vault to Qdrant instead of Obsidian Sync/CouchDB",
   "license": "MIT",
   "repository": {
