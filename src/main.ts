@@ -34,7 +34,7 @@ export default class QdrantSyncPlugin extends Plugin {
     );
 
     this.addCommand({
-      id: "qdrant-sync-pull-now",
+      id: "pull-now",
       name: "Pull changes from Qdrant now",
       callback: () => {
         void this.sync.pull().then(() => new Notice("Qdrant sync: pull complete"));
@@ -53,7 +53,8 @@ export default class QdrantSyncPlugin extends Plugin {
   }
 
   async loadSettings(): Promise<void> {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    const stored = (await this.loadData()) as Partial<QdrantSyncSettings> | null;
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, stored);
   }
 
   async saveSettings(): Promise<void> {

@@ -1,6 +1,6 @@
 import { TFile, TFolder } from "obsidian";
 import type QdrantSyncPlugin from "./main";
-import { embed, sha256, pathToId, upsertPoint, deletePointsByPath, scrollChangedSince, getPointByPath } from "./qdrant";
+import { embed, sha256, pathToId, upsertPoint, scrollChangedSince, getPointByPath } from "./qdrant";
 
 const SYNC_ROOT_EXCLUDE = /^\.obsidian\//;
 
@@ -97,7 +97,7 @@ export class SyncEngine {
 
   /** A zero vector reuses the same collection schema for tombstones without an embed call. */
   private async tombstoneVector(): Promise<number[]> {
-    return new Array(768).fill(0);
+    return new Array<number>(768).fill(0);
   }
 
   startPulling(): void {
@@ -140,7 +140,7 @@ export class SyncEngine {
 
     if (payload.deleted) {
       if (existing instanceof TFile && existing.stat.mtime <= payload.mtime) {
-        await vault.delete(existing);
+        await this.plugin.app.fileManager.trashFile(existing);
       }
       return;
     }

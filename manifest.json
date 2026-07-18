@@ -1,7 +1,7 @@
 {
   "id": "qdrant-sync",
   "name": "Qdrant Sync",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "minAppVersion": "1.4.0",
   "description": "Syncs this vault to a self-hosted Qdrant collection instead of Sync or CouchDB - every note is embedded for semantic search from agent tooling too.",
   "author": "rufi",

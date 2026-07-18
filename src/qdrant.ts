@@ -56,16 +56,6 @@ export async function upsertPoint(settings: QdrantSyncSettings, id: string, vect
   });
 }
 
-export async function deletePointsByPath(settings: QdrantSyncSettings, path: string): Promise<void> {
-  const id = await pathToId(path);
-  await requestUrl({
-    url: `${settings.qdrantUrl}/collections/${settings.collection}/points/delete?wait=true`,
-    method: "POST",
-    headers: headers(settings),
-    body: JSON.stringify({ points: [id] }),
-  });
-}
-
 /** Scroll every point with payload.mtime > sinceMs, paginating through Qdrant's scroll API. */
 export async function scrollChangedSince(settings: QdrantSyncSettings, sinceMs: number): Promise<QdrantPoint[]> {
   const points: QdrantPoint[] = [];
