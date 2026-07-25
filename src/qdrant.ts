@@ -37,6 +37,7 @@ export async function embed(settings: QdrantSyncSettings, text: string, task: "s
     url: `${settings.embedUrl}/embedding`,
     method: "POST",
     contentType: "application/json",
+    headers: settings.embedApiKey ? { Authorization: `Bearer ${settings.embedApiKey}` } : undefined,
     body: JSON.stringify({ content: `${task}: ${text}` }),
   });
   const body = res.json as Array<{ embedding: number[][] }>;

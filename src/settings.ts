@@ -5,6 +5,7 @@ export interface QdrantSyncSettings {
   qdrantUrl: string;
   qdrantApiKey: string;
   embedUrl: string;
+  embedApiKey: string;
   collection: string;
   pullIntervalSeconds: number;
   lastSyncCursor: number;
@@ -14,6 +15,7 @@ export const DEFAULT_SETTINGS: QdrantSyncSettings = {
   qdrantUrl: "",
   qdrantApiKey: "",
   embedUrl: "",
+  embedApiKey: "",
   collection: "obsidian_notes",
   pullIntervalSeconds: 30,
   lastSyncCursor: 0,
@@ -50,6 +52,11 @@ export class QdrantSyncSettingTab extends PluginSettingTab {
         name: "Embedding server URL",
         desc: "llama.cpp server with --embedding enabled, e.g. https://embed.example.com",
         control: { type: "text", key: "embedUrl" },
+      },
+      {
+        name: "Embed API key",
+        desc: "Optional - only needed if the embedding server requires auth. Sent as an Authorization: Bearer header.",
+        control: { type: "text", key: "embedApiKey" },
       },
       {
         name: "Collection name",
